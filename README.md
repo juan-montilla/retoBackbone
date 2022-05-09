@@ -4,7 +4,7 @@ reto Backbone in order to hire me
 Project log:
 
 - See how the response could be adapted to models and relationships.
-- Downloaded the files from The Mexican Postal Service. Decided to go with the txt format
+- I went to The Mexican Postal Service website. Decided to go with the txt format
 - Ugly as expected with the wrong charset. Loaded it in libreoffice-calc to beautify it a little bit. Converted to CSV file
 - Checked which charset is in use. Used iconv to transform from charset=iso-8859-1 to utf8 
 - A little bit of reverse engineering . Checked which rows can be read as rows and/or tables. 
