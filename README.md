@@ -1,5 +1,5 @@
 # retoBackbone
-reto Backbone in order to hire me
+reto Backbone
 
 Project log:
 
