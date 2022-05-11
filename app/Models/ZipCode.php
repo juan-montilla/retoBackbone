@@ -9,11 +9,11 @@ class ZipCode extends Model
 {
     use HasFactory;
 
-    protected $table = 'zip_code';
+    protected $table = 'zipcodes';
     public $timestamps = false;
     protected $fillable = ['zip_code','locality','federal_entity_id','municipality_id'];
     public function settlements() {
-        return $this->hasMany(Settlement::class);
+        return $this->belongsToMany(Settlement::class, 'settlement_zipcode');
     }
     public function federalEntity() {
         return $this->belongsTo(FederalEntity::class);

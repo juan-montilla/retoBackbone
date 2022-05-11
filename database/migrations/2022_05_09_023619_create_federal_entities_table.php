@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rel_zipcode_settlement', function (Blueprint $table) {
-            $table->id(); // alias bigIncrement()
-            $table->string('zip_code');
-            $table->unsignedInteger('settlement_id');
+        Schema::create('federal_entities', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('code')->nullable();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rel_zipcode_settlement');
+        Schema::dropIfExists('federal_entities');
     }
 };

@@ -13,6 +13,11 @@ Project log:
 - Created ZipCode{Controller, StoreRequest, UpdateRequest}
 - Now it is time to test code.. so i need an env to work with. Decided to go with laradock.
 - Setting up laradock.. mysql db, user; changed php version to 8.1
+- Removed laradock; for some reason the mysql container does not want to work...
+- Used only a simple mysql container.
+- Using the response as template; i modelled each array row to easily create each model and its relationshios
+- Import process works; a bit slow tho. Got an issue with the last two lines to be imported Zip code = 99998
+- Modified the input file to give me a space if a field is empty (|| becomes |0x20|)
 
 
 

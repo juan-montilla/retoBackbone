@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Municipality extends Model
+class SettlementZipcode extends Model
 {
     use HasFactory;
-
-    protected $table = 'municipalities';
+    protected $table = 'settlement_zipcode';
     public $timestamps = false;
-    public $incrementing = false;
-    protected $fillable = ['name','id'];
+    protected $fillable = ['settlement_id','zipcode_id'];
 }

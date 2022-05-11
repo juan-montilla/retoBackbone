@@ -9,7 +9,7 @@ class SettlementType extends Model
 {
     use HasFactory;
 
-    protected $table = 'settlement_type';
+    protected $table = 'settlement_types';
     public $timestamps = false;
     protected $fillable = ['name'];
 

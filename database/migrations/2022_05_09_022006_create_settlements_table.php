@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('municipality', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('settlements', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->primary();
             $table->string('name');
+            $table->string('zone_type');
+            $table->unsignedBigInteger('settlement_type_id');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('municipality');
+        Schema::dropIfExists('settlements');
     }
 };

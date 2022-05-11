@@ -9,7 +9,8 @@ class FederalEntity extends Model
 {
     use HasFactory;
 
-    protected $table = 'federal_entity';
+    protected $table = 'federal_entities';
     public $timestamps = false;
-    protected $fillable = ['name', 'code'];
+    public $incrementing = false;
+    protected $fillable = ['name', 'code'. 'id'];
 }

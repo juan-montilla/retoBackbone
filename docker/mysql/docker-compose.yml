@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: docker.io/bitnami/mysql:8.0
+    ports:
+      - '3306:3306'
+    volumes:
+      - 'mysql_data:/bitnami/mysql/data'
+      - 'docker-entrypoint-startdb.d:/docker-entrypoint-startdb.d'
+      - 'docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d'
+
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=123
+    networks:
+      - khala
+    healthcheck:
+      test: ['CMD', '/opt/bitnami/scripts/mysql/healthcheck.sh']
+      interval: 15s
+      timeout: 5s
+      retries: 6
+
+volumes:
+  mysql_data:
+    driver: local
+  docker-entrypoint-startdb.d:
+    driver: local
+  docker-entrypoint-initdb.d:
+    driver: local
+
+networks:
+  khala:
+    driver: bridge

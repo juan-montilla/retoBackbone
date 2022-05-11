@@ -13,15 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('zip_code', function (Blueprint $table) {
+        Schema::create('zipcodes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('zip_code')->unique(); // I am well aware i could use zip code as primary key. 
+            $table->string('zip_code')->unique()->index(); // I am well aware i could use zip code as primary key. 
             $table->string('locality');
             $table->unsignedBigInteger('federal_entity_id');
             $table->unsignedBigInteger('municipality_id');
-            // $table->foreignId('federal_entity_id')->constrained('federal_entity');
-            $table->foreign('federal_entity_id')->references('id')->on('federal_entity');
-            $table->foreign('municipality_id')->references('id')->on('municipality');
+            /* 
+                Alternative syntax
+                $table->foreignId('federal_entity_id')->constrained('federal_entity');
+
+            */
+            $table->foreign('federal_entity_id')->references('id')->on('federal_entities');
+            $table->foreign('municipality_id')->references('id')->on('municipalities');
         });
     }
 
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zip_code');
+        Schema::dropIfExists('zipcodes');
     }
 };

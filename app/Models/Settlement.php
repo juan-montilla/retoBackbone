@@ -9,10 +9,14 @@ class Settlement extends Model
 {
     use HasFactory;
 
-    protected $table = 'settlement';
+    protected $table = 'settlements';
     public $timestamps = false;
-    protected $fillable = ['name','zone_type','settlement_type_id'];
+    public $incrementing = false;
+    protected $fillable = ['name','zone_type','settlement_type_id','id'];
     public function settlementType() {
         return $this->belongsTo(SettlementType::class);
+    }
+    public function zipCodes() {
+        $this->belongsToMany(ZipCode::class,'settlement_zipcode','settlement_id','zipcode_id');
     }
 }

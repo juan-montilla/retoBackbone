@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS 'repo'@'%' IDENTIFIED BY 'repo';
+CREATE DATABASE IF NOT EXISTS repo;
+GRANT ALL ON repo.* TO 'repo'@'%';
