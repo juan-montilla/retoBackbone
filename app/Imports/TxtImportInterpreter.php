@@ -36,7 +36,7 @@ class TxtImportInterpreter {
   public function convertArrayRowsToElementsByZipCode(array $rows): array {
     $res = [];
     foreach ($rows as $rowString) {
-      $res['zip_code']  = $this->padZipCodeWithZeroes($rowString[0]);
+      $res['zip_code']  = Str::padLeft($rowString[0], self::MAX_ZIPCODE_LENGTH, '0');
       $res['locality']  = $rowString[5];
       /** federal_entities */
       $res['federal_units'] = [
@@ -47,7 +47,7 @@ class TxtImportInterpreter {
       $res['settlements'][] = [
         'id'              => $rowString[10],
         'name'            => $rowString[1],
-        'zone_type'       => $rowString[12],
+        'zone_type'       => $rowString[11],
         'settlement_type' => [
           'name'  => $rowString[2],
         ]
@@ -58,14 +58,5 @@ class TxtImportInterpreter {
       ];
     }
     return $res;
-  }
-  public function padZipCodeWithZeroes(string $string):string {
-    /* https://coderwall.com/p/-xpdkq/utf-8-str_pad-in-php */
-    return str_pad(
-      $string,
-      self::MAX_ZIPCODE_LENGTH - Str::length($string),
-      '0',
-      STR_PAD_LEFT
-    );
   }
 }

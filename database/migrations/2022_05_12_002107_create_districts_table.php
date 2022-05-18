@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('districts', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->unique();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->unsignedBigInteger('federal_unit_id');
             $table->foreign('federal_unit_id')->references('id')->on('federal_units');
             $table->primary('id');

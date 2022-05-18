@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('federal_units', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->unique();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('code')->nullable();
             $table->primary('id');
             $table->index(['id','name']);

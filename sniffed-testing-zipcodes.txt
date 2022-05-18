@@ -1,0 +1,4 @@
+GET /api/zip-codes/43800       200 OK                                                                                                                                                                              
+GET /api/zip-codes/76000       200 OK                                                                                                                                                                              
+GET /api/zip-codes/56700       200 OK                                                                                                                                                                              
+GET /api/zip-codes/56000       200 OK
