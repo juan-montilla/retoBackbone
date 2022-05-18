@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('federal_entities', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('settlement_types', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->string('code')->nullable();
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('federal_entities');
+        Schema::dropIfExists('settlement_types');
     }
 };

@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settlement_types', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+        Schema::create('federal_units', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->unique();
+            $table->string('name')->unique();
+            $table->string('code')->nullable();
+            $table->primary('id');
+            $table->index(['id','name']);
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settlement_types');
+        Schema::dropIfExists('federal_units');
     }
 };

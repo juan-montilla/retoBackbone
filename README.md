@@ -17,6 +17,7 @@ Project log:
 - Used only a simple mysql container.
 - Using the response as template; i modelled each array row to easily create each model and its relationshios
 - Import process works; a bit slow tho. Got an issue with the last two lines to be imported Zip code = 99998
+- Fixed previous issue.. an empty line :-|
 - Modified the input file to give me a space if a field is empty (|| becomes |0x20|)
 - Issues with many-to-many relationship.. laravel *wants* to use zip_code_id instead of zipcode_id
 

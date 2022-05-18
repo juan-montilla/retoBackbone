@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Municipality extends Model
+class District extends Model
 {
     use HasFactory;
-
-    protected $table = 'municipalities';
     public $timestamps = false;
     public $incrementing = false;
-    protected $fillable = ['name','id'];
+
+    public function federalUnit() {
+        return $this->belongsTo(FederalUnit::class);
+    }
+    public function ZipCodes() {
+        return $this->hasMany(ZipCode::class);
+    }
 }

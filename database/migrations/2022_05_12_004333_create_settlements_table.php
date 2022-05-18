@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('municipalities', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->unique();
+        Schema::create('settlements', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
+            $table->string('zone_type');
+            $table->index('name');
+            $table->unsignedBigInteger('settlement_type_id');
+            $table->unsignedBigInteger('code_id')->nullable();
         });
     }
 
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('municipalities');
+        Schema::dropIfExists('settlements');
     }
 };

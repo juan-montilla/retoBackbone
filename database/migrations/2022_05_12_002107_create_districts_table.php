@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settlements', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
-            $table->string('name');
-            $table->string('zone_type');
-            $table->unsignedBigInteger('settlement_type_id');
+        Schema::create('districts', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->unique();
+            $table->string('name')->unique();
+            $table->unsignedBigInteger('federal_unit_id');
+            $table->foreign('federal_unit_id')->references('id')->on('federal_units');
+            $table->primary('id');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settlements');
+        Schema::dropIfExists('districts');
     }
 };
